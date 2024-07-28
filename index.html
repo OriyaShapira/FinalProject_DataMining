@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Car sale ad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap" rel="stylesheet">
+    <style>
+        /* Text formatting settings */
+        label {display: block;}
+        body { font-family: 'Heebo Light', sans-serif; display: flex; flex-direction: column; align-items: center;}
+        .warning { color: red; display: flex; font-size: 0.8em;}
+
+        /* Display settings */
+        .form-container { display: flex; flex-wrap: wrap; max-width: 1200px; width: 100%; justify-content: space-between;}
+        .form-column { flex: 1; margin: 10px;}
+        .form-group { margin-bottom: 15px;}
+        .form-group input, .form-group select {width: 100%;}
+        .inline-group { display: flex; gap: 10px;}
+        .inline-group div {flex: 1;}
+        h3 {margin-bottom: 10px;}
+    </style>
+  </head>
+  <body>
+    <div class="login">
+        <h1>Creating car sale ad</h1>
+        <h2>Enter your car details: </h2>
+        <form id="measurement-form" method="post" onsubmit="return validateForm()">
+        <div class="form-container">
+            <div class="form-column">
+                <!--The first of the 3 information parts - details of the car -->
+                <h3>Car details</h3>
+
+                <!-- Box for entering the manufacturer's company - only accepts letters -->
+                <div class="form-group">
+                    <label for="manufactor">Manufacturer:</label>
+                    <span id="manufactor-warning" class="warning">Please use letters only</span>
+                    <input type="text" id="manufactor" name="manufactor" required><br><br>
+                </div>
+
+                <!--Box for entering the car model-->
+                <div class="form-group">
+                    <label for="model">Model:</label>
+                    <input type="text" id="model" name="model" required><br><br>
+                </div>
+
+                <!--Selection of production year by scrolling-->
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select id="year" name="year" required>
+                        <option value="">Select Year</option>
+                        <option value="1980">1980</option>
+                        <option value="1981">1981</option>
+                        <option value="1982">1982</option>
+                        <option value="1983">1983</option>
+                        <option value="1984">1984</option>
+                        <option value="1985">1985</option>
+                        <option value="1986">1986</option>
+                        <option value="1987">1987</option>
+                        <option value="1988">1988</option>
+                        <option value="1989">1989</option>
+                        <option value="1990">1990</option>
+                        <option value="1991">1991</option>
+                        <option value="1992">1992</option>
+                        <option value="1993">1993</option>
+                        <option value="1994">1994</option>
+                        <option value="1995">1995</option>
+                        <option value="1996">1996</option>
+                        <option value="1997">1997</option>
+                        <option value="1998">1998</option>
+                        <option value="1999">1999</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select><br><br>
+                </div>
+
+                <!--Cell to fill in the hand, limited to filling in numbers only-->
+                <div class="form-group">
+                    <label for="hand">Hand:</label>
+                    <span id="hand-warning" class="warning">Please use integers only</span>
+                    <input type="text" id="hand" name="hand" required><br><br>
+                </div>
+
+                <!--Selecting a gear type from built-in options-->
+                <div class="form-group">
+                    <label for="gear">Gear:</label>
+                    <select id="gear" name="gear" required>
+                        <option value="">Select Gear</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Tiptronic">Tiptronic</option>
+                        <option value="Automatic">Automatic</option>
+                    </select><br><br>
+                </div>
+
+            </div>
+            <div class="form-column">
+                <!--The second part of 3 - information regarding the specific vehicle advertising -->
+                <h3>Properties</h3>
+
+                <!--A cell for filling the engine volume - can be filled with numbers only-->
+                <div class="form-group">
+                    <label for="capacity_Engine">Engine capacity:</label>
+                    <span id="capacity-warning" class="warning">Please use integers only</span>
+                    <input type="text" id="capacity_Engine" name="capacity_Engine" required><br><br>
+                </div>
+
+                <!--Selecting engine type from built-in options-->
+                <div class="form-group">
+                    <label for="Engine_type">Engine type:</label>
+                    <select id="Engine_type" name="Engine_type" required>
+                        <option value="">Select Engine type</option>
+                        <option value="hybrid">hybrid</option>
+                        <option value="gasoline">gasoline</option>
+                        <option value="diesel">diesel</option>
+                        <option value="gas">gas</option>
+                        <option value="turbo_diesel">turbo diesel</option>
+                        <option value="electric">electric</option>
+                    </select><br><br>
+                </div>
+
+                <!--Cell to fill in the car kilometraz, limited to filling in numbers only-->
+                <div class="form-group">
+                    <label for="km">Km:</label>
+                    <span id="km-warning" class="warning">Please use integers only</span>
+                    <input type="text" id="km" name="km" required><br><br>
+                </div>
+
+                <!--Cell to fill in the car color, limited to filling in letters only-->
+                <div class="form-group">
+                    <label for="color">Color:</label>
+                    <span id="color-warning" class="warning">Please use letters only</span>
+                    <input type="text" id="color" name="color"><br><br>
+                </div>
+
+                <!--Selecting Previous and Current Ownership type from built-in options-->
+                <div class="form-group">
+                    <label for="Previous">Previous Ownership:</label>
+                    <select id="Previous" name="Previous">
+                        <option value="">Select ownership type</option>
+                        <option value="private">private</option>
+                        <option value="leasing">leasing</option>
+                        <option value="company">company</option>
+                        <option value="renting">renting</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Current">Current Ownership:</label>
+                    <select id="Current" name="Current" required>
+                        <option value="">Select ownership type</option>
+                        <option value="private">private</option>
+                        <option value="leasing">leasing</option>
+                        <option value="company">company</option>
+                        <option value="renting">renting</option>
+                        <option value="other">other</option>
+                    </select><br><br>
+                </div>
+            </div>
+
+            <div class="form-column">
+                <!--The third part - concerns the details that depend on the seller himself-->
+                <h3>Private Info</h3>
+
+                <!--The seller's residential area - can be filled with letters only-->
+                <div class="form-group">
+                    <label for="area">Area:</label>
+                    <span id="area-warning" class="warning">Please use letters only</span>
+                    <input type="text" id="area" name="area" required>
+                </div>
+
+                <!--The seller's residential city - can be filled with letters only-->
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <span id="city-warning" class="warning">Please use letters only</span>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <!--Until when is the vehicle's test valid-->
+                <div class="form-group">
+                    <div class="form-group inline-group">
+                        <label for="Test">Test:</label><br><br>
+                        <div>
+                            <label for="test-year">Year:</label>
+                            <select id="test-year" name="test-year" >
+                                <option value="">Select year</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="test-month">Month:</label>
+                            <select id="test-month" name="test-month" >
+                                <option value="">Select month</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select><br><br>
+                        </div>
+                    </div>
+                </div>
+
+                <!--A verbal description that is filled in freely-->
+                <div class="form-group">
+                    <label for="Description">Description:</label>
+                    <input type="text" id="Description" name="Description">
+                </div><br><br>
+            </div>
+        </div>
+
+        <!--Reset button and create ad button-->
+        <div style="text-align: center; width: 100%;">
+            <button type="submit" class="btn btn-primary px-5">Create Ad</button>
+            <button type="button" class="btn btn-secondary px-5" onclick="clearForm()">Clear</button>
+        </div>
+        </form>
+        <h3 id="car-ad"></h3>
+    </div>
+
+    <script>
+    <!--reset the page and clear all filleds-->
+    function clearForm() {
+        console.log("Clearing form...");
+        document.getElementById('measurement-form').reset();
+        var inputs = document.querySelectorAll('#measurement-form input[type="text"]');
+        inputs.forEach(input => input.value = '');
+        var selects = document.querySelectorAll('#measurement-form select');
+        selects.forEach(select => select.selectedIndex = 0);
+        document.getElementById('car-ad').innerHTML = '';
+        document.querySelectorAll('.warning').forEach(warning => warning.style.display = 'none');}
+
+    <!--validat cherecter form and preventing going forward if wrong-->
+    function validateForm() {
+        var manufactor = document.getElementById('manufactor').value;
+        var model = document.getElementById('model').value;
+        var year = document.getElementById('year').value;
+        var hand = document.getElementById('hand').value;
+        var gear = document.getElementById('gear').value;
+        var capacity_Engine = document.getElementById('capacity_Engine').value;
+        var engineType = document.getElementById('Engine_type').value;
+        var km = document.getElementById('km').value;
+        var currentOwner = document.getElementById('Current').value;
+        var area = document.getElementById('area').value;
+        var color = document.getElementById('color').value;
+        var city = document.getElementById('city').value;
+
+        var regexLetters = /^[^\d\p{P}]+$/u;
+        var regexNumbers = /^\d+$/;
+
+        if (!regexLetters.test(manufactor) ||
+            !regexLetters.test(area) ||
+            !regexLetters.test(city) ||
+            !regexLetters.test(color) ||
+            !regexNumbers.test(hand) ||
+            !regexNumbers.test(capacity_Engine) ||
+            !regexNumbers.test(km)) {
+            document.getElementById('car-ad').innerHTML = "Please make sure that all the details you inserted are correct.";
+            return false;}
+
+        displayAd(manufactor, model, year, hand, gear, capacity_Engine, engineType, km, currentOwner, area, city);
+        return false;}
+
+    <!--creating and displey salles ad according to the details the user inserted-->
+    function displayAd(manufactor, model, year, hand, gear, capacity_Engine, engineType, km, currentOwner, area, city) {
+        var adContent = `
+            <h2>Your car details are:</h2>
+            <p><strong> ${manufactor} ${model} model ${year}<strong></p>
+            <p>Hand: ${hand}</p>
+            <p>Gear: ${gear}</p>
+            <p>Engine Capacity: ${capacity_Engine}</p>
+            <p>Engine Type: ${engineType}</p>
+            <p>Kilometers: ${km}</p>
+            <p>Area: ${area}</p>
+            <p>City: ${city}</p>
+            <p>Current Ownership:</strong> ${currentOwner}</p>`;
+        var previousOwner = document.getElementById('Previous').value;
+        if (previousOwner) {adContent += `<p>Previous Ownership: ${previousOwner}</p>`;}
+        var color = document.getElementById('color').value;
+        if (color) {adContent += `<p>Color: ${color}</p>`;}
+        var testYear = document.getElementById('test-year').value;
+        var testMonth = document.getElementById('test-month').value;
+        if (testYear && testMonth) {adContent += `<p>Test: ${testMonth}/${testYear}</p>`;}
+        var description = document.getElementById('Description').value;
+        if (description) {adContent += `<p>Description: ${description}</p>`;}
+        document.getElementById('car-ad').innerHTML = adContent;}
+    </script>
+  </body>
+</html>
